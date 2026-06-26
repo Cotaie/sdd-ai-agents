@@ -8,12 +8,11 @@ Skills are reusable workflow capabilities. They give agents repeatable procedure
 
 Each skill has:
 
+- YAML frontmatter with a stable `name` and `description`
 - a `SKILL.md`
-- trigger guidance
-- required inputs
-- expected outputs
-- step-by-step behavior
-- artifact templates or references where needed
+- `When to use`
+- `Steps`
+- `References` where needed
 
 Skills represent repeatable procedures that agents can invoke or follow.
 
@@ -31,11 +30,11 @@ The installer should support symlink and copy modes.
 
 Developer skills should be layered:
 
-- `sdd-developer`: generic SDD implementation discipline and artifact rules
-- `sdd-developer-typescript`: TypeScript-specific implementation rules
-- `sdd-developer-python`: Python-specific implementation rules
+- `developers`: generic SDD implementation discipline and artifact rules
+- `typescript`: TypeScript-specific implementation rules
+- `python`: Python-specific implementation rules
 
-The repository uses a single developer agent that combines `sdd-developer` with
+The repository uses a single developer agent that combines `developers` with
 the relevant stack skill.
 
 Examples:
@@ -43,13 +42,13 @@ Examples:
 ```text
 sdd-developer-agent
   skills:
-    - sdd-developer
-    - sdd-developer-typescript
+    - developers
+    - typescript
 
 sdd-developer-agent
   skills:
-    - sdd-developer
-    - sdd-developer-python
+    - developers
+    - python
 ```
 
 The generic `sdd-developer-agent` may include both stack skills when the task

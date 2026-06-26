@@ -238,8 +238,8 @@ Creates implementation changes and unit tests.
 The developer stage uses one implementation agent:
 
 - `sdd-developer-agent` is the standard implementation agent.
-- `sdd-developer` is the generic implementation skill.
-- `sdd-developer-typescript` and `sdd-developer-python` add stack-specific rules.
+- `developers` is the generic implementation skill.
+- `typescript` and `python` add stack-specific rules.
 
 Use `sdd-developer-agent` for implementation tasks when the stack is known or
 when the task spans both TypeScript and Python.

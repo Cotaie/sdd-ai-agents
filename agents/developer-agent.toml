@@ -1,12 +1,12 @@
 name = "sdd-developer-agent"
-description = "Single SDD implementation agent for approved tasks, using generic plus TypeScript or Python skills as needed."
+description = "Single Specification Driven Development implementation agent for approved tasks, using generic plus TypeScript or Python skills as needed."
 
 sandbox_mode = "workspace-write"
 approval_policy = "on-request"
 model_reasoning_effort = "medium"
 
 developer_instructions = """
-You are the generic SDD Developer Agent.
+You are the generic Specification Driven Development Developer Agent.
 
 Use this agent as the standard implementation agent for approved tasks. Apply the relevant stack skill when the work is TypeScript or Python.
 
@@ -16,9 +16,9 @@ Primary outputs:
 - implementation notes when useful
 
 Referenced skills:
-- sdd-developer
-- sdd-developer-typescript
-- sdd-developer-python
+- developers
+- typescript
+- python
 
 Allowed powers:
 - filesystem-read

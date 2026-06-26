@@ -1,25 +1,23 @@
-# SDD Developer Skills
+---
+name: developers
+description: Use when implementation work needs the shared Specification Driven Development developer rules before stack-specific behavior is applied, regardless of language or framework.
+license: MIT
+compatibility: Designed for Codex
+metadata:
+  author: cotaie
+  version: "1.0"
+---
 
-This skill family contains the generic developer discipline plus the stack
-skills used by the single SDD developer agent.
+# Developer Skills
 
-## Generic Skill
+## Steps
 
-`sdd-developer` defines the implementation baseline:
+1. Read the approved requirements, design, and task scope.
+2. Keep changes scoped, add or update focused tests, and preserve existing project patterns.
+3. Report mismatches instead of silently changing upstream artifacts.
+4. Load the stack-specific skill that carries project conventions, commands, testing patterns, and review gates.
 
-- implement only the approved task
-- follow approved requirements and design
-- keep changes scoped
-- add or update focused tests
-- report mismatches instead of silently changing upstream artifacts
+## References
 
-## Stack Skills
-
-The current stack-specific skills are:
-
-- `sdd-developer-typescript`
-- `sdd-developer-python`
-
-The developer agent should combine the generic skill with the relevant stack
-skill when the task is clearly TypeScript or Python.
-
+- [Workflow guide](../../docs/workflow.md)
+- [Requirements guide](../../docs/requirements.md)
