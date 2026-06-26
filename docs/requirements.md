@@ -17,14 +17,14 @@ After installation, all Codex sessions running under the same WSL user should be
 
 ## 2. Core Idea
 
-The user manually chooses specialized agents one by one during development.
+The user manually chooses the appropriate agents one by one during development.
 
 Each agent is responsible for a specific kind of guidance or work:
 
 - product and requirements thinking
 - architecture and design thinking
 - planning and task breakdown
-- stack-specific implementation
+- implementation
 - review and validation
 - documentation and release preparation
 
@@ -133,7 +133,7 @@ Examples:
 ```text
 docs/reviews/initial-project/requirements-review.md
 docs/reviews/jira-power/design-review-r2.md
-docs/reviews/typescript-developer/code-review.md
+docs/reviews/developer/code-review.md
 ```
 
 If multiple review rounds are persisted, use a clear suffix such as `-r2`, `-r3`, or a short date stamp.
@@ -363,11 +363,6 @@ sdd-ai-agents/
     planner-agent.toml
     task-reviewer.toml
     developer-agent.toml
-    developers/
-      typescript-developer.toml
-      python-developer.toml
-      react-developer.toml
-      node-developer.toml
     code-reviewer.toml
     tester-agent.toml
     test-reviewer.toml
@@ -390,10 +385,6 @@ sdd-ai-agents/
       typescript/
         SKILL.md
       python/
-        SKILL.md
-      react/
-        SKILL.md
-      node/
         SKILL.md
     code-reviewer/
       SKILL.md

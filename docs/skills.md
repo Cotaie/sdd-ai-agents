@@ -34,32 +34,26 @@ Developer skills should be layered:
 - `sdd-developer`: generic SDD implementation discipline and artifact rules
 - `sdd-developer-typescript`: TypeScript-specific implementation rules
 - `sdd-developer-python`: Python-specific implementation rules
-- `sdd-developer-react`: React-specific implementation rules
-- `sdd-developer-node`: Node.js-specific implementation rules
 
-Specialized developer agents should reference `sdd-developer` and the relevant stack-specific skills.
+The repository uses a single developer agent that combines `sdd-developer` with
+the relevant stack skill.
 
 Examples:
 
 ```text
-sdd-typescript-developer
+sdd-developer-agent
   skills:
     - sdd-developer
     - sdd-developer-typescript
 
-sdd-react-developer
-  skills:
-    - sdd-developer
-    - sdd-developer-typescript
-    - sdd-developer-react
-
-sdd-python-developer
+sdd-developer-agent
   skills:
     - sdd-developer
     - sdd-developer-python
 ```
 
-The generic `sdd-developer-agent` may reference only `sdd-developer` when acting as a fallback or coordinator.
+The generic `sdd-developer-agent` may include both stack skills when the task
+touches multiple layers.
 
 ## Target Skill Layout
 
@@ -82,10 +76,6 @@ skills/
     typescript/
       SKILL.md
     python/
-      SKILL.md
-    react/
-      SKILL.md
-    node/
       SKILL.md
   code-reviewer/
     SKILL.md

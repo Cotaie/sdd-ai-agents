@@ -23,14 +23,14 @@ Artifacts are created when useful or required. Review results are displayed in t
 
 There is no automatic state machine. There is no requirement that every task pass through every agent.
 
-Use the agent that matches the current need. For example, once design and tasks are clear, implementation tasks can go directly to the appropriate specialized developer agent. The Architect Agent is used again only when the user decides a missing design decision, architectural conflict, or unclear technical direction needs architectural input.
+Use the agent that matches the current need. Once design and tasks are clear, implementation tasks go to the single developer agent. The Architect Agent is used again only when the user decides a missing design decision, architectural conflict, or unclear technical direction needs architectural input.
 
 | Phase | Typical Input | Agent | Typical Output | Optional Follow-up |
 | --- | --- | --- | --- | --- |
 | Requirements | Idea, prompt, business context | Product Agent | Requirements guidance or `requirements.md` | Requirements Reviewer |
 | Design | Requirements or product direction | Architect Agent | Design guidance, `design.md`, ADR/API/data-model artifacts | Design Reviewer |
 | Planning | Requirements and design direction | Planner Agent | Task breakdown or `tasks.md` | Task Reviewer |
-| Implementation | Task or task slice | Specialized Developer Agent | Source changes, tests, implementation notes | Code Reviewer |
+| Implementation | Task or task slice | Developer Agent | Source changes, tests, implementation notes | Code Reviewer |
 | Validation | Implementation and expected behavior | Tester Agent | Test execution summary, bug reports, `validation-report.md` | Test Reviewer |
 | Release | Completed implementation and validation evidence | Documentation / Release Agent | Documentation, changelog, migration notes, release notes | Optional future docs reviewer |
 
@@ -70,7 +70,7 @@ Examples:
 ```text
 docs/reviews/initial-project/requirements-review.md
 docs/reviews/jira-power/design-review-r2.md
-docs/reviews/typescript-developer/code-review.md
+docs/reviews/developer/code-review.md
 ```
 
 If multiple review rounds are persisted, use a clear suffix such as `-r2`, `-r3`, or a short date stamp.
@@ -235,51 +235,14 @@ Forbidden:
 
 Creates implementation changes and unit tests.
 
-The developer stage is layered:
+The developer stage uses one implementation agent:
 
-- `sdd-developer-agent` is the generic fallback, coordinator, and base SDD developer contract.
-- specialized developer agents are the normal executors when the stack is known.
-- `sdd-developer` is the generic implementation skill shared by all developer agents.
-- language and framework skills add stack-specific implementation rules.
+- `sdd-developer-agent` is the standard implementation agent.
+- `sdd-developer` is the generic implementation skill.
+- `sdd-developer-typescript` and `sdd-developer-python` add stack-specific rules.
 
-Normal implementation should use a specialized developer agent directly when possible.
-
-Examples:
-
-- `sdd-typescript-developer`
-- `sdd-python-developer`
-- `sdd-react-developer`
-- `sdd-node-developer`
-
-Use `sdd-developer-agent` only when:
-
-- the stack is unknown
-- the task is language-agnostic, such as markdown, config, Docker, CI, or repository structure
-- the task spans multiple stacks and needs to be split before assigning specialized agents
-- a specialized developer agent does not exist yet
-- a new specialized developer agent is being created from the base contract
-
-Specialized developer agents should reference the generic developer skill plus one or more stack-specific skills.
-
-Examples:
-
-```text
-sdd-typescript-developer
-  skills:
-    - sdd-developer
-    - sdd-developer-typescript
-
-sdd-react-developer
-  skills:
-    - sdd-developer
-    - sdd-developer-typescript
-    - sdd-developer-react
-
-sdd-python-developer
-  skills:
-    - sdd-developer
-    - sdd-developer-python
-```
+Use `sdd-developer-agent` for implementation tasks when the stack is known or
+when the task spans both TypeScript and Python.
 
 Responsibilities:
 
@@ -289,7 +252,7 @@ Responsibilities:
 - keep changes scoped
 - report implementation notes
 - follow generic SDD developer rules
-- follow stack-specific language and framework rules
+- follow stack-specific language rules when relevant
 
 Forbidden:
 
