@@ -1,0 +1,32 @@
+.agents/
+
+# Project Codex config can be committed, but local secrets/state must not be.
+.codex/.env.local
+!.codex/.env.example
+.codex/secrets*
+.codex/*.local.toml
+.codex/state/
+.codex/cache/
+
+# Local credentials and generated state
+.env
+.env.*
+!.codex/.env.example
+*.secret
+*.secrets
+secrets
+secrets.*
+
+# Dependency and tool caches
+.venv/
+node_modules/
+.cache/
+.pytest_cache/
+__pycache__/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
+*.swp
+*.swo

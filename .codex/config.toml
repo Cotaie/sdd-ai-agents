@@ -1,0 +1,20 @@
+# Project-local Codex configuration for sdd-ai-agents.
+#
+# Jira is configured here only for managing this repository's project work.
+# It is not part of the reusable SDD agent power set under powers/.
+#
+# Required environment variables:
+# - JIRA_URL
+# - JIRA_USERNAME
+# - JIRA_API_TOKEN
+#
+# Load them with:
+#   source .codex/load-project-env.sh
+#   codex
+
+[mcp_servers.sdd_project_jira]
+command = "uvx"
+args = ["mcp-atlassian"]
+env_vars = ["JIRA_URL", "JIRA_USERNAME", "JIRA_API_TOKEN"]
+enabled = true
+default_tools_approval_mode = "prompt"
