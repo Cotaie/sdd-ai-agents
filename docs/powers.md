@@ -12,7 +12,6 @@ Powers are not generic personality traits. They describe concrete tool access su
 - create Jira epics, stories, tasks, and comments
 - read GitHub repositories, issues, pull requests, diffs, and checks
 - write GitHub pull request comments or review summaries
-- read Slack channels or write release notifications
 - run local test commands
 - read or write project files
 
@@ -21,7 +20,7 @@ Powers are not generic personality traits. They describe concrete tool access su
 A power has:
 
 - a stable name
-- a provider such as Jira, GitHub, Slack, filesystem, shell, or Codex
+- a provider such as Jira, GitHub, filesystem, shell, or Codex
 - concrete capabilities
 - access level such as read, write, or admin-like
 - required setup such as MCP servers, app connectors, CLI tools, or environment variables
@@ -60,7 +59,8 @@ Codex does not currently expose a single first-class object named `power`, so v1
 
 ## Power Folder Format
 
-V1 should use one folder per external power:
+V1 should use one folder per external power. The initial external power folders
+are Jira and GitHub:
 
 ```text
 powers/
@@ -69,10 +69,6 @@ powers/
     mcp.toml
     secrets.template
   github/
-    POWER.md
-    mcp.toml
-    secrets.template
-  slack/
     POWER.md
     mcp.toml
     secrets.template
@@ -97,8 +93,9 @@ Example:
 
 ```text
 # powers/jira/secrets.template
-# ATLASSIAN_USERNAME=your.email@example.com
-# ATLASSIAN_API_TOKEN=your-api-token
+# JIRA_URL=https://your-company.atlassian.net
+# JIRA_USERNAME=your.email@example.com
+# JIRA_API_TOKEN=your-api-token
 ```
 
 Powers may also be documentation-only if no MCP server or credentials are required.
@@ -162,8 +159,7 @@ Example fragment:
 [mcp_servers.sdd_jira]
 command = "uvx"
 args = ["mcp-atlassian"]
-env_vars = ["ATLASSIAN_USERNAME", "ATLASSIAN_API_TOKEN"]
+env_vars = ["JIRA_URL", "JIRA_USERNAME", "JIRA_API_TOKEN"]
 enabled = true
 default_tools_approval_mode = "prompt"
 ```
-

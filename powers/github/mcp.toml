@@ -1,0 +1,7 @@
+[mcp_servers.sdd_github]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-github"]
+env_vars = ["GITHUB_PERSONAL_ACCESS_TOKEN"]
+enabled = false
+default_tools_approval_mode = "prompt"
+

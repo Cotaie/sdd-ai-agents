@@ -16,6 +16,7 @@
 *.secrets
 secrets
 secrets.*
+!powers/*/secrets.template
 
 # Dependency and tool caches
 .venv/

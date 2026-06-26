@@ -420,10 +420,6 @@ sdd-ai-agents/
       POWER.md
       mcp.toml
       secrets.template
-    slack/
-      POWER.md
-      mcp.toml
-      secrets.template
   scripts/
     install.sh
     uninstall.sh
